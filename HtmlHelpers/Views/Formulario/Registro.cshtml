@@ -1,0 +1,106 @@
+﻿@using HtmlHelpers.Models
+@model Formulario
+@{
+    ViewBag.Title = "Registro";
+}
+
+<h2>Registro</h2>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+<link href="~/Estilos/fondo-degradado-tonos-azules_1100-19.jpg" rel="stylesheet" type="text/css" />
+
+@Html.ActionLink("Back", "Index", "Formulario", null, new { @class = "btn btn-primary" })
+
+<form action="Registro" method="post">
+
+    <div class="form-row">
+        <div class="col-md-12">
+            @Html.LabelFor(m => m.Cedula)
+            @Html.EditorFor(m => m.Cedula, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(m => m.Cedula, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-md-12">
+            @Html.LabelFor(m => m.Nombre)
+            @Html.EditorFor(m => m.Nombre, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(m => m.Nombre, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-md-12">
+            @Html.LabelFor(m => m.Apellido)
+            @Html.EditorFor(m => m.Apellido, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(m => m.Apellido, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-md-12">
+            @Html.LabelFor(m => m.Edad)
+            @Html.EditorFor(m => m.Edad, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(m => m.Edad, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-md-12">
+            @Html.LabelFor(m => m.Telefono)
+            @Html.EditorFor(m => m.Telefono, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(m => m.Telefono, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-md-12">
+            @Html.LabelFor(m => m.Correo)
+            @Html.EditorFor(m => m.Correo, new { htmlAttributes = new { @class = "form-control" } })
+            @Html.ValidationMessageFor(m => m.Correo, "", new { @class = "text-danger" })
+        </div>
+    </div>
+    <div class="form-row">
+        <div class="col-md-12">
+            @Html.LabelFor(m => m.Genero)
+            @Html.DropDownList("Genero",
+                     new SelectList(Enum.GetValues(typeof(Gender))),
+                     "Seleccione",
+                     new { @class = "form-control" })
+        </div>
+    </div>
+    <br />
+    <div class="form-row">
+        <div class="col-md-12">
+            @Html.LabelFor(m => m.Estado_Civil)
+            <br />
+            Casado  @Html.RadioButton("Estado_Civil", "Casado")
+            Soltero @Html.RadioButton("Estado_Civil", "Soltero")
+            <br />
+            Viudo @Html.RadioButton("Estado_Civil", "Viudo")
+            Union Libre @Html.RadioButton("Estado_Civil", "Union Libre")
+        </div>
+    </div>
+    <br />
+    <div class="form-row">
+        <div class="col-md-12">
+            @*@Html.LabelFor(m => m.Hobbys)
+        <br />
+        Leer   @Html.CheckBox("Leer", false)
+        Escuchar Musica  @Html.CheckBox("Escuchar Musica", false)
+        <br />
+        Programar @Html.CheckBox("Programar", false)
+        Correr  @Html.CheckBox("Correr", false)*@
+          @Html.LabelForModel("Hobbies:")
+            Leer @Html.CheckBoxFor(f => f.Hobby1)
+            Musica @Html.CheckBoxFor(f => f.Hobby2)
+            Programar @Html.CheckBoxFor(f => f.Hobby3)
+            Correr @Html.CheckBoxFor(f => f.Hobby4)
+
+
+        </div>
+    </div>
+    <br />
+
+    <input type="submit" value="Agregar" />
+
+    </form>
+
+@*</form>  @Html.ActionLink("Create", "Datos", "Formulario", null, new { @class = "btn btn-danger" })
+
+</form>  @Html.ActionLink("Back", "Index", "Formulario", null, new { @class = "btn btn-primary" })*@
+

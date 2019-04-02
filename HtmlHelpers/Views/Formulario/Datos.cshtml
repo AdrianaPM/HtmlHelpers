@@ -1,0 +1,28 @@
+﻿@using HtmlHelpers.Models
+@model Formulario
+
+@{
+    ViewBag.Title = "Datos";
+}
+<h2>Datos</h2>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+
+<link href="~/Estilos/fondo-degradado-tonos-azules_1100-19.jpg" rel="stylesheet" type="text/css" />
+<div>
+    <p> Cedula: @Model.Cedula</p>
+    <p> Nombre: @Model.Nombre</p>
+    <p> Apellido: @Model.Apellido</p>
+    <p> Edad: @Model.Edad</p>
+    <p> Telefono: @Model.Telefono</p>
+    <p> Correo: @Model.Correo</p>
+    <p> Genero: @Model.Genero</p>
+    <p> Estado Civil: @Model.Estado_Civil</p>
+    <p> Hobbies:</p>
+    @if (Model.Hobby1 == true) { <label>Leer</label>}
+    @if (Model.Hobby2 == true) { <label>Musica</label>}
+    @if (Model.Hobby3 == true) { <label>Programar</label>}
+    @if (Model.Hobby4 == true) { <label>Correr</label>}
+
+
+
+</div>
